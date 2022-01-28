@@ -28,3 +28,20 @@ const swiper = new Swiper('.swiper', {
           }
       }
 });
+
+const windowModal = document.querySelector('.modal');
+const body = document.querySelector('body');
+const buttonModal = document.querySelector('.main-display__button');
+
+buttonModal.addEventListener('click', () => {
+    windowModal.classList.add('active');
+    body.classList.add('lock');
+});
+
+windowModal.addEventListener('click', (e) => {
+    const isModal = e.target.closest('.modal__inner');
+    if (!isModal) {
+        windowModal.classList.remove('active');   
+        body.classList.remove('lock');   
+    }
+});
